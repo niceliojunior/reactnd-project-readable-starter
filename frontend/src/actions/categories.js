@@ -32,7 +32,6 @@ export function fetchCategories() {
     return getCategories()
       .then(handleErrors)
       .then(res => { 
-          console.log(res);
           dispatch(fetchCategoriesSuccess(res.categories));
           return res.categories;
       })

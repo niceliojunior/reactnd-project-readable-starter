@@ -6,6 +6,8 @@ import reduce from './reducers';
 import thunk from 'redux-thunk';
 
 import './index.css';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 

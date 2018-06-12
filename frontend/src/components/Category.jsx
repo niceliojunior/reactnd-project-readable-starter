@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ListPosts from './ListPosts';
 
-class Category extends Component {
-    render() {
-        return (
-            <div>
-                Category
-            </div>
-        );
-    }
+export default function Category(props) {
+  return (
+    <div id="content">
+      <ListPosts {...props} />
+    </div>
+  );
 }
-
-export default Category;

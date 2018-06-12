@@ -1,11 +1,14 @@
 import React from 'react';
+import ListPosts from './ListPosts';
 
-export default class Home extends React.Component {
-    render() {
-        return (
-            <div>
-            Home    
-            </div>
-        );
-    }
+class Home extends React.Component {
+  render() {
+    return (
+      <div id="content">
+        <ListPosts />
+      </div>
+    );
+  }
 }
+export default Home;
+

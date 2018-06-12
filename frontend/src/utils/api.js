@@ -18,16 +18,16 @@ export const getCategories = () =>
     .then(data => data);
 
 // GET /:category/posts
-export const getPostsCategory = (category) =>
-  fetch(`${api}/${category.path}/posts`, { headers })
+export const getPostsByCategory = (category) =>
+  fetch(`${api}/${category}/posts`, { headers })
     .then(res => res.json())
-    .then(data => data.categoryPosts);
+    .then(data => data);
 
 // GET /posts
 export const getPosts = () => 
   fetch(`${api}/posts`, { headers })
     .then(res => res.json())
-    .then(data => data.posts);
+    .then(data => data);
 
 // POST /posts
 export const addPost = (post) =>

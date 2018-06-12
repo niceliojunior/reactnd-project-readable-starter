@@ -7,7 +7,7 @@ import { capitalize } from '../utils/helpers';
 
 class NavBar extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchCategories());
+    this.props.fetchCategories();
   }
 
   render() {
@@ -29,7 +29,7 @@ class NavBar extends React.Component {
           <Nav pullRight>
             <NavItem eventKey={0} componentClass={Link} href="/" to="/">Home</NavItem>
             {categories.map((category, number) => 
-              <NavItem eventKey={number +1} key={`${category.path}`} componentClass={Link} href={`/category/${category.path}`} to={`/category/${category.path}`}>{capitalize(category.name)}</NavItem>
+              <NavItem eventKey={number +1} key={`${category.path}`} componentClass={Link} href={`/${category.path}`} to={`/${category.path}`}>{capitalize(category.name)}</NavItem>
             )}
           </Nav>
         </Navbar.Collapse>
@@ -43,4 +43,10 @@ const mapStateToProps = state => ({
   error: state.categories.error,
 })
 
-export default connect(mapStateToProps)(NavBar);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchCategories: () => dispatch(fetchCategories())
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
