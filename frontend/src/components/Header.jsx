@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { fetchCategories } from '../actions/categories';
 import { capitalize } from '../utils/helpers';
 
-class NavBar extends React.Component {
+class Header extends React.Component {
   componentDidMount() {
     this.props.fetchCategories();
   }
@@ -27,9 +27,9 @@ class NavBar extends React.Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
-            <NavItem eventKey={0} componentClass={Link} href="/" to="/">Home</NavItem>
+            <NavItem eventKey={1} componentClass={Link} href="/" to="/">Home</NavItem>
             {categories.map((category, number) => 
-              <NavItem eventKey={number +1} key={`${category.path}`} componentClass={Link} href={`/${category.path}`} to={`/${category.path}`}>{capitalize(category.name)}</NavItem>
+              <NavItem eventKey={number +2} key={`${category.path}`} componentClass={Link} href={`/${category.path}`} to={`/${category.path}`}>{capitalize(category.name)}</NavItem>
             )}
           </Nav>
         </Navbar.Collapse>
@@ -49,4 +49,4 @@ const mapDispatchToProps = dispatch => {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
