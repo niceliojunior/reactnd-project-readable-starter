@@ -20,9 +20,11 @@ const columns = [{
 },{
   dataField: 'title',
   text: 'Title',
-  sort: true,
   formatter: linkCell,
-  headerClasses: 'tableHeader'
+  headerClasses: 'tableHeader',
+  headerStyle: {
+    width: '40%'
+  }
 }, {
   dataField: 'category',
   text: 'Category',
@@ -37,7 +39,7 @@ const columns = [{
   headerClasses: 'tableHeader'
 }, {
   dataField: 'timestamp',
-  text: 'Creation Date',
+  text: 'Date',
   sort: true,
   formatter: dateFormat,
   headerClasses: 'tableHeader'
