@@ -20,13 +20,13 @@ export function categories(state = initialState, action) {
     case FETCH_CATEGORIES_SUCCESS:
       return {
         ...state,
-        items: action.payload.categories,
+        items: action.categories,
       };
 
     case FETCH_CATEGORIES_FAILURE:
       return {
         ...state,
-        error: action.payload.error,
+        error: action.error,
         items: [],
       };
 

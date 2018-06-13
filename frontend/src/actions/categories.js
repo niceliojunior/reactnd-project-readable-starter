@@ -10,12 +10,12 @@ export const fetchCategoriesBegin = () => ({
 
 export const fetchCategoriesSuccess = categories => ({
     type: FETCH_CATEGORIES_SUCCESS,
-    payload: { categories }
+    categories
 });
 
 export const fetchCategoriesError = error => ({
     type: FETCH_CATEGORIES_FAILURE,
-    payload: { error }
+    error
 });
 
 function handleErrors(response) {
@@ -31,11 +31,7 @@ export function fetchCategories() {
     dispatch(fetchCategoriesBegin());
     return getCategories()
       .then(handleErrors)
-      .then(res => { 
-          dispatch(fetchCategoriesSuccess(res.categories));
-          return res.categories;
-      })
-      .catch(error => dispatch(fetchCategoriesError(error))
-      )
+      .then(res => { dispatch(fetchCategoriesSuccess(res.categories)); })
+      .catch(error => dispatch(fetchCategoriesError(error)))
   };
 };

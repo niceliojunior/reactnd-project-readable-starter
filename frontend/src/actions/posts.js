@@ -20,12 +20,12 @@ export const fetchPostsBegin = () => ({
 
 export const fetchPostsSuccess = posts => ({
   type: FETCH_POSTS_SUCCESS,
-  payload: { posts }
+  posts
 });
 
 export const fetchPostsError = error => ({
   type: FETCH_POSTS_FAILURE,
-  payload: { error }
+  error
 });
 
 export function fetchPosts() {
@@ -53,12 +53,12 @@ export const fetchPostsByCategoryBegin = () => ({
 
 export const fetchPostsByCategorySuccess = posts => ({
   type: FETCH_POSTS_BY_CATEGORY_SUCCESS,
-  payload: { posts }
+  posts
 });
 
 export const fetchPostsByCategoryError = error => ({
   type: FETCH_POSTS_BY_CATEGORY_FAILURE,
-  payload: { error }
+  error
 });
 
 export function fetchPostsByCategory(category) {
@@ -66,11 +66,7 @@ export function fetchPostsByCategory(category) {
     dispatch(fetchPostsByCategoryBegin());
     return getPostsByCategory(category)
       .then(handleErrors)
-      .then(res => { 
-        dispatch(fetchPostsByCategorySuccess(res));
-        return res;
-      })
-      .catch(error => dispatch(fetchPostsByCategoryError(error))
-      )
+      .then(res => { dispatch(fetchPostsByCategorySuccess(res)); })
+      .catch(error => dispatch(fetchPostsByCategoryError(error)))
   };
 };

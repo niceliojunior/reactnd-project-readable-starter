@@ -1,10 +1,15 @@
 import React from 'react';
 import ListPosts from './ListPosts';
+import { Grid } from 'react-bootstrap';
 
-export default function Category(props) {
-  return (
-    <div id="content">
-      <ListPosts {...props} />
-    </div>
-  );
+class Category extends React.Component {
+  render() {
+    return (
+      <Grid>
+        <ListPosts match={this.props.match} />
+      </Grid>
+    )
+  }
 }
+
+export default Category;

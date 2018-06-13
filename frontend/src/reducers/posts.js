@@ -23,13 +23,13 @@ export function posts(state = initialState, action) {
     case FETCH_POSTS_SUCCESS:
       return {
         ...state,
-        items: action.payload.posts,
+        items: action.posts,
       };
 
     case FETCH_POSTS_FAILURE:
       return {
         ...state,
-        error: action.payload.error,
+        error: action.error,
         items: [],
       };
 
@@ -42,13 +42,13 @@ export function posts(state = initialState, action) {
     case FETCH_POSTS_BY_CATEGORY_SUCCESS:
       return {
         ...state,
-        items: action.payload.posts,
+        items: action.posts,
       };
 
     case FETCH_POSTS_BY_CATEGORY_FAILURE:
       return {
         ...state,
-        error: action.payload.error,
+        error: action.error,
         items: [],
       };
 

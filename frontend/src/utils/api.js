@@ -41,10 +41,10 @@ export const addPost = (post) =>
   }).then(res => res.json());
 
 // GET /posts/:id
-export const getPost = (post) => 
-  fetch(`${api}/post/${post.id}`, { headers })
+export const getPost = (id) => 
+  fetch(`${api}/posts/${id}`, { headers })
     .then(res => res.json())
-    .then(data => data.post);
+    .then(data => data);
 
 // POST /posts/:id
 export const votePost = (post, option) =>

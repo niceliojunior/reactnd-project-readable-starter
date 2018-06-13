@@ -13,7 +13,7 @@ export default class App extends React.Component {
         <Header />
         <Route exact path='/' component={Home} />
         <Route exact path='/:category' component={props => <Category {...props} />} />
-        <Route exact path='/:category/:id' component={Post} />
+        <Route exact path='/:category/:id' component={props => <Post {...props} />} />
       </div>    
     );
   }

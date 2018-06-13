@@ -21,26 +21,31 @@ const columns = [{
   dataField: 'title',
   text: 'Title',
   sort: true,
-  formatter: linkCell
+  formatter: linkCell,
+  headerClasses: 'tableHeader'
 }, {
   dataField: 'category',
   text: 'Category',
   sort: true,
-  formatter: capitalize
+  formatter: capitalize,
+  headerClasses: 'tableHeader'
 }, {
   dataField: 'author',
   text: 'Author',
   sort: true,
-  formatter: capitalize
+  formatter: capitalize,
+  headerClasses: 'tableHeader'
 }, {
   dataField: 'timestamp',
   text: 'Creation Date',
   sort: true,
-  formatter: dateFormat
+  formatter: dateFormat,
+  headerClasses: 'tableHeader'
 }, {
   dataField: 'voteScore',
   text: 'Raking',
-  sort: true
+  sort: true,
+  headerClasses: 'tableHeader'
 }];
 
 class ListPosts extends React.Component {
@@ -55,16 +60,17 @@ class ListPosts extends React.Component {
   }
 
   render() {
-    const { error, posts } = this.props;
+    const { error, posts, match } = this.props;
+    const pageHeaderTitle = typeof(match) !== 'undefined' ? `(filtered by: ${match.params.category})`: '';
 
     if (error) {
-      return <Alert bsStyle="danger">Can not list posts! { error.message }</Alert>;
+      return <Alert bsStyle="danger">Can not list posts!<br />Error message: { error.message }</Alert>;
     }
 
     return (
       <div>
-        <PageHeader><small>All posts</small></PageHeader>
-        <BootstrapTable striped hover condensed keyField='id' data={posts} columns={columns} noDataIndication={ 'No posts to show' } />
+        <PageHeader><small>All posts {pageHeaderTitle}</small></PageHeader>
+        <BootstrapTable hover condensed keyField='id' data={posts} columns={columns} noDataIndication={ 'No posts to show' } />
       </div>
     );
   }
