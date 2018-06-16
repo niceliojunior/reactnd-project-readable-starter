@@ -6,6 +6,7 @@ import { fetchCategories } from '../actions/categories';
 import { capitalize } from '../utils/helpers';
 
 class Header extends React.Component {
+
   componentDidMount() {
     this.props.fetchCategories();
   }

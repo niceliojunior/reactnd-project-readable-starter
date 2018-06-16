@@ -69,16 +69,16 @@ export const editPost = (post, title, body) =>
   }).then(res => res.json());
 
 // DELETE /posts/:id
-export const delPost = (post) =>
-  fetch(`${api}/posts/${post.id}`, {
+export const delPost = (id) =>
+  fetch(`${api}/posts/${id}`, {
     method: 'DELETE',
     headers}).then(res => res.json());
 
 // GET /posts/:id/comments
-export const getCommentsFromPost = (post) => 
-  fetch(`${api}/post/${post.id}/comments`, { headers })
+export const getCommentsByPost = (id) => 
+  fetch(`${api}/posts/${id}/comments`, { headers })
     .then(res => res.json())
-    .then(data => data.post);
+    .then(data => data);
 
 // POST /comments
 export const addPostComment = (comment) =>

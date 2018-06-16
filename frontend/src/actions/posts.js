@@ -66,7 +66,7 @@ export function fetchPostsByCategory(category) {
     dispatch(fetchPostsByCategoryBegin());
     return getPostsByCategory(category)
       .then(handleErrors)
-      .then(res => { dispatch(fetchPostsByCategorySuccess(res)); })
+      .then(res => { dispatch(fetchPostsByCategorySuccess(res)) })
       .catch(error => dispatch(fetchPostsByCategoryError(error)))
   };
 };

@@ -51,6 +51,7 @@ const columns = [{
 }];
 
 class ListPosts extends React.Component {
+  
   componentDidMount() {
     const {fetchPosts, fetchPostsByCategory, match } = this.props;
 
@@ -62,7 +63,8 @@ class ListPosts extends React.Component {
   }
 
   render() {
-    const { error, posts, match } = this.props;
+    console.log('listposts')
+    const {error, posts, match } = this.props;
     const pageHeaderTitle = typeof(match) !== 'undefined' ? `(filtered by: ${match.params.category})`: '';
 
     if (error) {
